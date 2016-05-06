@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
     printf("u * %d + v * %d = %d.\n", first, second, *gcd);
     printf("where u = %d and v = %d.\n", *u, *v);
   }
-  
+
   return 0;
 }
 
