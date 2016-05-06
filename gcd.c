@@ -6,7 +6,13 @@ void extendGcdCalc(int*, int*, int*, int, int);
 
 int main(int argc, char **argv) {
   int eFlag = 0;
+  char c;
 
+  while ((c = getopt(argc, argv, "e:")) != -1) {
+    if (c == 'e') eflag = 1;
+  }
+
+  
 
 }
 
