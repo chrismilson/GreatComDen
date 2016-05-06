@@ -5,15 +5,23 @@
 void extendGcdCalc(int*, int*, int*, int, int);
 
 int main(int argc, char **argv) {
-  int eFlag = 0;
+  int eFlag = 0, testFlag = 0;
+  int first, second;
   char c;
 
-  while ((c = getopt(argc, argv, "e")) != -1) {
+  while ((c = getopt(argc, argv, "et")) != -1) {
     if (c == 'e') eFlag = 1;
+    if (c == 't') testFlag = 1;
   }
 
-  int first = strtol(argv[optind], NULL, 10);
-  int second = strtol(argv[optind + 1], NULL, 10);
+  if (testFlag) {
+    eFlag = 1;
+    first = 163231;
+    second = 135749;
+  } else {
+    first = strtol(argv[optind], NULL, 10);
+    second = strtol(argv[optind + 1], NULL, 10);
+  }
 
   int *u, *v, *gcd;
   u = (int*) malloc(sizeof(int));
@@ -28,7 +36,8 @@ int main(int argc, char **argv) {
     printf("u * %d + v * %d = %d.\n", first, second, *gcd);
     printf("where u = %d and v = %d.\n", *u, *v);
   }
-
+  
+  return 0;
 }
 
 void extendGcdCalc(int *coefFirst, int *coefSecond, int *gcd, int first, int second) {
